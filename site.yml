@@ -1,0 +1,6 @@
+- hosts: vagrant
+  user: vagrant
+  sudo: yes
+  roles:
+    - { role: prerequisite }
+    - { role: rbenv }

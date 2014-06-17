@@ -1,0 +1,12 @@
+- name: cloning rbenv
+  git: repo=https://github.com/sstephenson/rbenv.git
+       dest=~/.rbenv
+
+- name: cloning ruby-build
+  git: repo=https://github.com/sstephenson/ruby-build.git
+       dest=~/.rbenv/plugins/ruby-build
+
+- name: setting bashrc
+  lineinfile: dest=~/.bashrc regexp="rbenv"
+              insertafter=EOF
+              line='export PATH="$HOME/.rbenv/bin:$PATH"; eval "$(rbenv init -)"'
